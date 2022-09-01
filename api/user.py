@@ -21,6 +21,8 @@ class User:
         method = "GET"
         return self.rest_client.request(path, method, params=params, headers=headers, **kwargs)
 
+user = User()
+
 
 
 

@@ -3,7 +3,7 @@ import os
 import pytest
 from common.logger import log
 
-BASE_PATH = os.path.dirname(os.path.dirname(__name__))
+BASE_PATH = os.path.dirname(os.path.dirname(__file__))
 
 
 def get_data(yaml_file_name):

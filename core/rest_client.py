@@ -1,5 +1,6 @@
 import requests
 from core.respon_result import set_result
+from common.logger import log
 
 
 class RestClient:
@@ -11,6 +12,7 @@ class RestClient:
     def request(self, path, method, data=None, json=None, params=None, headers=None, **kwargs):
         url = self.root_url + '/' + path
         files = kwargs.get("files", None)
+        log.info("{} 方法请求 {}".format(method, path))
         try:
             if method == "GET":
                 r = self.session.get(url, params=params, headers=headers, **kwargs)
@@ -24,6 +26,7 @@ class RestClient:
                 r = self.session.delete(url, data=data, json=json, params=params, headers=headers, **kwargs)
             else:
                 raise Exception("Don't support the method")
+            log.info(r.text)
             return set_result(r)
         except Exception as e:
             return {"req_code": "fail", "fail_message": e.args}

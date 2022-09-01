@@ -5,7 +5,7 @@ def set_result(r):
     result = {}
     result["req_code"] = "success"
     result["http_code"] = r.status_code
-    if r.text():
+    if r.text:
         try:
             r_json = r.json()
             if isinstance(r_json, dict):
@@ -13,8 +13,7 @@ def set_result(r):
             elif isinstance(r_json, list):
                 result["data"] = list
         except Exception as e:
-            import traceback
-            log.info(traceback.print_exc())
+            log.info(e)
 
     return result
 

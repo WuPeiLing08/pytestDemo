@@ -1,4 +1,9 @@
 test_get_all_users:
   # 期望结果,期望返回码,期望返回信息
-  # except_result, except_code, except_msg
-  - [True, 0, "查询成功"]
+  # except_req_code, except_code, except_msg
+  - except_req_code: "success"
+    except_code: 0
+    except_msg: "查询成功"
+  - except_req_code: "success"
+    except_code: 0
+    except_msg: "查询成功"
