@@ -3,3 +3,4 @@
 pyvenv.cfg
 /log
 */__pycache__/
+**/.idea
